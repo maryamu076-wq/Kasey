@@ -1,1 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>For Kasey ♡</title>
+
+<style>
+* {
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+margin: 0;
+background: #fff9fc;
+color: #765875;
+font-family: Georgia, "Times New Roman", serif;
+overflow-x: hidden;
+}
+
+section {
+min-height: 100vh;
+padding: 70px 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+}
+
+/* =========================
+OPENING
+========================= */
+
+.hero {
+background: linear-gradient(
+180deg,
+#fffafd 0%,
+#f9edf9 100%
+);
+}
+
+.hero h1 {
+font-size: clamp(42px, 10vw, 72px);
+font-weight: normal;
+margin: 0 0 15px;
+color: #805b83;
+}
+
+.hero h2 {
+font-size: clamp(20px, 5vw, 28px);
+font-weight: normal;
+color: #a374a5;
+margin: 0 0 35px;
+}
+
+.hero p {
+max-width: 650px;
+line-height: 1.8;
+font-size: 17px;
+margin: 8px auto;
+}
+
+.scroll {
+margin-top: 50px;
+font-size: 16px;
+color: #9b759d;
+animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+0%,100% { transform: translateY(0); }
+50% { transform: translateY(8px); }
+}
+
+/* =========================
+MESSAGE
+========================= */
+
+.message-section {
+background: #fffafd;
+}
+
+.message-section h2 {
+font-size: 31px;
+font-weight: normal;
+color: #805b83;
+margin-bottom: 25px;
+}
+
+.message-section p {
+max-width: 650px;
+font-size: 18px;
+line-height: 1.9;
+margin: 8px auto;
+}
+
+/* =========================
+PHOTO SECTION
+========================= */
+
+.photos-section {
+background: #f9effa;
+}
+
+.photos-section h2 {
+font-size: 31px;
+font-weight: normal;
+margin-bottom: 35px;
+color: #805b83;
+}
+
+.photo-grid {
+width: min(900px, 94vw);
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 20px;
+}
+
+.photo-grid img {
+width: 100%;
+height: 330px;
+object-fit: cover;
+border-radius: 15px;
+border: 7px solid white;
+box-shadow: 0 8px 25px rgba(100,70,105,.15);
+}
+
+.photo-grid img:nth-child(5),
+.photo-grid img:nth-child(6) {
+grid-column: span 2;
+max-width: 430px;
+justify-self: center;
+}
+
+.photo-caption {
+margin-top: 30px;
+font-size: 18px;
+color: #926a94;
+}
+
+/* =========================
+KEEP SCROLLING
+========================= */
+
+.keep-scrolling {
+background: linear-gradient(
+180deg,
+#fffafd,
+#f8ebf9
+);
+}
+
+.keep-scrolling h2 {
+font-size: 32px;
+font-weight: normal;
+color: #805b83;
+}
+
+.keep-scrolling p {
+font-size: 18px;
+margin-bottom: 35px;
+}
+
+/* =========================
+ENVELOPE AREA
+========================= */
+
+.envelope-section {
+min-height: 100vh;
+position: relative;
+overflow: visible;
+background: #f8edf9;
+padding-top: 80px;
+}
+
+.envelope-section h2 {
+font-size: 31px;
+font-weight: normal;
+color: #805b83;
+margin: 0 0 10px;
+}
+
+.envelope-section > p {
+font-size: 17px;
+color: #9b759d;
+margin-bottom: 35px;
+}
+
+/* scene */
+
+.scene {
+position: relative;
+width: min(430px, 94vw);
+height: 650px;
+display: flex;
+justify-content: center;
+align-items: flex-end;
+overflow: visible;
+}
+
+/* =========================
+TEDDY CARD
+========================= */
+
+.teddy-card {
+position: absolute;
+
+width: 315px;
+height: 415px;
+
+object-fit: cover;
+
+background: white;
+border: 8px solid white;
+border-radius: 15px;
+
+bottom: 155px;
+
+opacity: 0;
+
+/*
+It starts inside the envelope,
+then rises completely ABOVE it.
+*/
+transform:
+translateY(210px)
+scale(.72)
+rotate(-2deg);
+
+box-shadow:
+0 15px 40px rgba(85,55,90,.25);
+
+z-index: 2;
+
+transition:
+transform 1.25s cubic-bezier(.18,.85,.25,1),
+opacity .6s ease;
+}
+
+/* =========================
+ENVELOPE
+========================= */
+
+.envelope {
+position: absolute;
+
+width: min(390px, 88vw);
+height: 250px;
+
+bottom: 80px;
+
+background: #d9b8e7;
+
+border-radius: 5px;
+
+cursor: pointer;
+
+box-shadow:
+0 15px 35px rgba(100,70,105,.18);
+
+z-index: 10;
+
+transition: transform .3s ease;
+}
+
+.envelope:hover {
+transform: translateY(-3px);
+}
+
+/* envelope back */
+
+.envelope-back {
+position: absolute;
+inset: 0;
+
+background: #d9b8e7;
+
+border-radius: 5px;
+
+z-index: 1;
+}
+
+/* left fold */
+
+.envelope-left {
+position: absolute;
+
+left: 0;
+bottom: 0;
+
+width: 52%;
+height: 100%;
+
+background: #cfabdf;
+
+clip-path: polygon(
+0 0,
+100% 50%,
+0 100%
+);
+
+z-index: 4;
+}
+
+/* right fold */
+
+.envelope-right {
+position: absolute;
+
+right: 0;
+bottom: 0;
+
+width: 52%;
+height: 100%;
+
+background: #cfabdf;
+
+clip-path: polygon(
+100% 0,
+0 50%,
+100% 100%
+);
+
+z-index: 4;
+}
+
+/* front fold */
+
+.envelope-front {
+position: absolute;
+
+inset: 0;
+
+background: #c69ed8;
+
+clip-path: polygon(
+0 0,
+50% 58%,
+100% 0,
+100% 100%,
+0 100%
+);
+
+border-radius: 5px;
+
+z-index: 6;
+}
+
+/* flap */
+
+.flap {
+position: absolute;
+
+top: 0;
+left: 0;
+
+width: 100%;
+height: 160px;
+
+background: #e6d0ef;
+
+clip-path: polygon(
+0 0,
+50% 100%,
+100% 0
+);
+
+transform-origin: top center;
+
+transition:
+transform .9s cubic-bezier(.4,0,.2,1);
+
+z-index: 12;
+}
+
+/* heart */
+
+.envelope-heart {
+position: absolute;
+
+left: 50%;
+top: 47%;
+
+transform: translate(-50%, -50%);
+
+color: #98689d;
+font-size: 31px;
+
+z-index: 15;
+
+transition:
+opacity .35s ease,
+transform .35s ease;
+}
+
+/* =========================
+OPEN STATE
+========================= */
+
+/*
+THIS IS THE IMPORTANT CHANGE.
+
+The teddy goes HIGH above the envelope
+and stays in front of it.
+*/
+
+.scene.open .teddy-card {
+transform:
+translateY(-175px)
+scale(1)
+rotate(-2deg);
+
+opacity: 1;
+
+z-index: 30;
+}
+
+.scene.open .flap {
+transform: rotateX(180deg);
+z-index: 3;
+}
+
+.scene.open .envelope-heart {
+opacity: 0;
+transform:
+translate(-50%, -50%)
+scale(.4);
+}
+
+/* =========================
+TEDDY TEXT
+========================= */
+
+.teddy-message {
+position: absolute;
+
+bottom: -5px;
+
+width: 100%;
+
+opacity: 0;
+
+transform: translateY(15px);
+
+transition:
+opacity .7s ease 1s,
+transform .7s ease 1s;
+
+pointer-events: none;
+
+z-index: 40;
+}
+
+.scene.open .teddy-message {
+opacity: 1;
+transform: translateY(0);
+}
+
+.teddy-message h3 {
+margin: 0;
+
+font-size: 23px;
+font-weight: normal;
+
+color: #805b83;
+}
+
+.teddy-message p {
+margin: 8px 0;
+
+font-size: 16px;
+color: #956d99;
+}
+
+.click-envelope {
+position: absolute;
+
+bottom: 38px;
+
+width: 100%;
+
+font-size: 17px;
+color: #956d99;
+
+z-index: 50;
+
+transition: opacity .4s ease;
+}
+
+.scene.open .click-envelope {
+opacity: 0;
+}
+
+/* =========================
+ENDING
+========================= */
+
+.ending {
+background: linear-gradient(
+180deg,
+#f8edf9,
+#fffafd
+);
+}
+
+.ending h2 {
+font-size: 35px;
+font-weight: normal;
+color: #805b83;
+margin-bottom: 30px;
+}
+
+.ending p {
+max-width: 650px;
+
+font-size: 18px;
+line-height: 1.9;
+
+margin: 8px auto;
+
+color: #795a7b;
+}
+
+.homeboy {
+font-size: 28px !important;
+color: #805b83 !important;
+margin-top: 25px !important;
+}
+
+.from {
+margin-top: 35px !important;
+font-size: 17px !important;
+color: #9b759d !important;
+}
+
+/* =========================
+FLOATING HEARTS
+========================= */
+
+.floating-heart {
+position: fixed;
+
+bottom: -30px;
+
+font-size: 20px;
+
+color: #c394c5;
+
+opacity: 0;
+
+pointer-events: none;
+
+animation: floatUp 8s linear infinite;
+
+z-index: 100;
+}
+
+.floating-heart:nth-of-type(1) {
+left: 10%;
+animation-delay: 0s;
+}
+
+.floating-heart:nth-of-type(2) {
+left: 25%;
+animation-delay: 2s;
+}
+
+.floating-heart:nth-of-type(3) {
+left: 72%;
+animation-delay: 1s;
+}
+
+.floating-heart:nth-of-type(4) {
+left: 88%;
+animation-delay: 4s;
+}
+
+@keyframes floatUp {
+
+0% {
+transform: translateY(0) rotate(0);
+opacity: 0;
+}
+
+15% {
+opacity: .6;
+}
+
+80% {
+opacity: .45;
+}
+
+100% {
+transform:
+translateY(-110vh)
+rotate(25deg);
+
+opacity: 0;
+}
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+section {
+padding-left: 15px;
+padding-right: 15px;
+}
+
+.photo-grid {
+grid-template-columns: 1fr;
+}
+
+.photo-grid img {
+height: 300px;
+}
+
+.photo-grid img:nth-child(5),
+.photo-grid img:nth-child(6) {
+grid-column: span 1;
+max-width: none;
+}
+
+.scene {
+height: 620px;
+}
+
+.teddy-card {
+width: 275px;
+height: 370px;
+}
+
+.envelope {
+height: 220px;
+}
+
+.flap {
+height: 140px;
+}
+
+.scene.open .teddy-card {
+transform:
+translateY(-165px)
+scale(1)
+rotate(-2deg);
+}
+}
+
+@media (max-width: 380px) {
+
+.teddy-card {
+width: 250px;
+height: 340px;
+}
+
+.envelope {
+width: 320px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING HEARTS -->
+
+<div class="floating-heart">♡</div>
+<div class="floating-heart">♡</div>
+<div class="floating-heart">♡</div>
+<div class="floating-heart">♡</div>
+
+
+<!-- =========================
+INTRO
+========================= -->
+
+<section class="hero">
+
+<h1>For Kasey ♡</h1>
+
+<h2>
+Happy National Soon-to-be-maybe-maybenot- Boyfriends Day
+</h2>
+
+<p>
+I know you're not technically my boyfriend... yet.
+</p>
+
+<p>
+But I still wanted to make you feel special today.
+</p>
+
+<div class="scroll">
+keep scrolling ♡
+</div>
+
+</section>
+
+
+<!-- =========================
+LITTLE MESSAGE
+========================= -->
+
+<section class="message-section">
+
+<h2>For my favourite person ♡</h2>
+
+<p>
+I don't really know what we're calling whatever this is,
+but I know that you're someone very special to me.
+</p>
+
+<p>
+So obviously I had to make you something.
+</p>
+
+</section>
+
+
+<!-- =========================
+PHOTOS
+========================= -->
+
+<section class="photos-section">
+
+<h2>A few of my favourite moments</h2>
+
+<div class="photo-grid">
+
+<img src="photo1.jpeg" alt="">
+<img src="photo2.jpeg" alt="">
+<img src="photo3.jpeg" alt="">
+<img src="photo4.jpeg" alt="">
+<img src="photo5.jpeg" alt="">
+<img src="photo6.jpeg" alt="">
+
+</div>
+
+<div class="photo-caption">
+i find these pics a lil cute i guesss🙄
+</div>
+
+</section>
+
+
+<!-- =========================
+KEEP SCROLLING
+========================= -->
+
+<section class="keep-scrolling">
+
+<h2>Keep scrolling ♡</h2>
+
+<p>
+there's still something waiting for you...
+</p>
+
+</section>
+
+
+<!-- =========================
+ENVELOPE
+========================= -->
+
+<section class="envelope-section">
+
+<h2>Open me ♡</h2>
+
+<p>
+click the envelope
+</p>
+
+<div class="scene" id="scene">
+
+
+<!-- FULL TEDDY PICTURE -->
+
+<img
+src="teddy.jpeg1"
+class="teddy-card"
+alt="Teddy Kasey"
+>
+
+
+<!-- ENVELOPE -->
+
+<div
+class="envelope"
+onclick="openEnvelope()"
+>
+
+<div class="envelope-back"></div>
+
+<div class="flap"></div>
+
+<div class="envelope-left"></div>
+
+<div class="envelope-right"></div>
+
+<div class="envelope-front"></div>
+
+<div class="envelope-heart">
+♡
+</div>
+
+</div>
+
+
+<div class="click-envelope">
+Click the envelope ♡
+</div>
+
+
+<!-- TEDDY MESSAGE -->
+
+<div class="teddy-message">
+
+<h3>
+Do you remember me crocheting this for you?
+</h3>
+
+<p>
+Teddy Kasey has been made, hee hee 😉
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+ENDING
+========================= -->
+
+<section class="ending">
+
+<h2>One last thing ♡</h2>
+
+<p>
+Thank you for making me laugh and smile so much.
+</p>
+
+<p class="homeboy">
+I’m so happy to have you as my HOMEBOY. 😉😉
+</p>
+
+<p class="from">
+From Maryam ♡
+</p>
+
+</section>
+
+
+<script>
+
+function openEnvelope() {
+
+const scene = document.getElementById("scene");
+
+scene.classList.toggle("open");
+
+}
+
+</script>
+
+</body>
+</html>
