@@ -1,23 +1,206 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, intial scale=1.0">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-              <title>For Kasey 💖</title>
+<title>For Kasey ♡</title>
 
-              <style>
-                body {
-                      background: #fff5f7;
-                      color: #4a3038;
-                      font-family: Georgia; serif;
-                      text-align: center;
-                      margin: 0;
-                      psdding: 0;
-                } </style>
-                .page {
-                    min-hieght: 100vh;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
+<style>
+* {
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+min-height: 100vh;
+background: linear-gradient(135deg, #fff5f7, #f9e4eb);
+color: #4b3038;
+font-family: Georgia, serif;
+overflow-x: hidden;
+}
+
+.page {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 30px;
+}
+
+.heart {
+font-size: 45px;
+margin-bottom: 20px;
+animation: heartbeat 1.5s infinite;
+}
+
+h1 {
+font-size: 52px;
+margin: 0 0 15px;
+font-weight: normal;
+}
+
+h2 {
+font-size: 23px;
+font-weight: normal;
+line-height: 1.5;
+max-width: 600px;
+}
+
+p {
+font-size: 18px;
+line-height: 1.8;
+max-width: 550px;
+}
+
+button {
+margin-top: 25px;
+padding: 15px 32px;
+border: none;
+border-radius: 40px;
+background: #4b3038;
+color: white;
+font-size: 16px;
+font-family: Georgia, serif;
+cursor: pointer;
+transition: 0.3s;
+}
+
+button:hover {
+transform: scale(1.07);
+}
+
+#secret {
+display: none;
+margin-top: 30px;
+animation: fadeIn 1s ease;
+}
+
+.small {
+font-size: 14px;
+opacity: 0.7;
+margin-top: 40px;
+}
+
+.floating-heart {
+position: fixed;
+bottom: -30px;
+font-size: 20px;
+animation: floatUp 7s linear infinite;
+opacity: 0.5;
+pointer-events: none;
+}
+
+@keyframes heartbeat {
+0%, 100% {
+transform: scale(1);
+}
+
+50% {
+transform: scale(1.15);
+}
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: translateY(10px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes floatUp {
+from {
+transform: translateY(0);
+opacity: 0;
+}
+
+20% {
+opacity: 0.5;
+}
+
+to {
+transform: translateY(-110vh);
+opacity: 0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<div class="heart">♡</div>
+
+<h1>For Kasey</h1>
+
+<h2>
+Happy National Soon-to-be Boyfriend's Day
+</h2>
+
+<p>
+I know you're not technically my boyfriend...
+<br>
+<b>yet.</b>
+</p>
+
+<p>
+But I still wanted to make something just for you.
+</p>
+
+<button onclick="showMessage()">
+Open this ♡
+</button>
+
+<p id="secret">
+You're one of my favourite people in the entire world.
+<br><br>
+I love you more than you probably realise.
+<br><br>
+♡
+</p>
+
+<div class="small">
+made with love, just for you
+</div>
+
+</div>
+
+<script>
+
+function showMessage() {
+document.getElementById("secret").style.display = "block";
+}
+
+function createHeart() {
+
+const heart = document.createElement("div");
+
+heart.className = "floating-heart";
+heart.innerHTML = "♡";
+
+heart.style.left = Math.random() * 100 + "vw";
+heart.style.animationDuration =
+(5 + Math.random() * 5) + "s";
+
+document.body.appendChild(heart);
+
+setTimeout(function() {
+heart.remove();
+}, 10000);
+}
+
+setInterval(createHeart, 1200);
+
+</script>
+
+</body>
+</html>
+
